@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JSQA</title>
+    <style>
+        body {
+            font-family: monospace
+        }
+
+        h1 {
+            color: rgb(135, 117, 16);
+        }
+
+        p {
+            margin-left: 30px;
+        }
+
+        div {
+            color: green;
+        }
+
+        pre {
+            margin-left: 30px;
+            border: 1px solid green;
+            padding: 10px 0px;
+            color: blue;
+            border-radius: 8px;
+            background: rgb(219, 214, 214);
+        }
+
+        h3 {
+            color: brown;
+        }
+
+        code {
+            color: green;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Javascript</h1>
+    <he />
+    <h3>What is the difference between null and undefined in JavaScript?</h3>
+    <div>==></div>
+    <p>null represents a deliberate non-value or empty object reference, while undefined represents an uninitialized or
+        missing value.</p>
+    <pre>
+        let number = null 
+        let number; <code>//undefined</code>
+    </pre>
+    <hr />
+
+    <h3>
+        What is the difference between a function declaration and a function expression in JavaScript?
+    </h3>
+    <div>==></div>
+    <p>
+        A function declaration creates a named function that is hoisted to the top of its scope, while a function
+        expression creates an unnamed function that is assigned to a variable or property.
+    </p>
+    <pre>
+        function add(a,b){
+            return a+b
+        } <code>//function declaration</code>
+
+        const add = function(a,b){
+            return a+b
+        } <code>//function expression</code>
+    </pre>
+    <hr />
+
+    <h3>
+        What is the difference between synchronous and asynchronous code execution in JavaScript?
+    </h3>
+    <div>==></div>
+    <p>
+        Synchronous code is executed in a sequential order, blocking the program until a task is completed, while
+        asynchronous code allows multiple tasks to be executed simultaneously and continues running without waiting for
+        a task to complete.
+    </p>
+    <pre>
+        function add(a,b){
+            return a+b
+        }
+        add() <code>//Synchronous</code>
+
+        setTimeout(()=>{
+            console.log("hello")
+        },2000) <code>//Asynchronous</code>
+    </pre>
+    <hr />
+
+
+    <h3>What is the purpose of the “this” keyword in JavaScript?</h3>
+    <div>==></div>
+    <p>
+        The “this” keyword refers to the current object context and allows methods to access and manipulate properties
+        and methods of the object that called them.
+    </p>
+    <pre>
+        class CAR {
+            constructor(type){
+                this.type = type
+            }
+
+            getType(){
+                return this.type <code>//refere current object</code>
+            }
+        }
+
+        let honda = new CAR("petrol")
+        honda.geType()
+    </pre>
+    <hr />
+
+
+    <h3>What is the difference between “var”, “let”, and “const” in JavaScript?</h3>
+    <div>==></div>
+    <p>
+        “var” declares a variable with function scope, “let” declares a variable with block scope, and “const” declares
+        a variable that cannot be reassigned.
+    </p>
+    <pre>
+        let fname ="ram"
+        var lname = "patil"
+        const ADSRESS = "india"
+    </pre>
+    <hr />
+
+
+    <h3>What is a closure in JavaScript?</h3>
+    <div>==></div>
+    <p>
+        A closure is a function that has access to variables in its outer lexical scope, even after the outer function
+        has returned.
+        <br /><br />
+        A closure is a function that has access to variables in its outer (enclosing) function’s scope. This allows the
+        function to “remember” the values of those variables, even if they are no longer in scope.
+
+    </p>
+    <pre>
+         const outer =()=>{
+                 let outercount = 1;
+                 const inner = ()=>{
+                     console.log("inner", outercount)
+                 }
+                 return inner
+         }
+         const fun = outer()
+         fun() <code>//inner 1</code>
+    </pre>
+    <hr />
+
+
+    <h3>What is the difference between a for loop, foreach, for..of, and a for…in loop in JavaScript?</h3>
+    <div>==></div>
+    <p>
+        A for loop iterates over a range of values, for…in loop iterates over the properties of an object
+        for…of and foreach loop iterates over the Array
+    </p>
+    <pre>
+        let arr = [1, 2, 3]
+        let obj = {name: "avinash", address: "pune"}
+        <hr/>
+        for(let i = 0; i <= 2; i++){
+            console.log(arr[i])  <code>//1,2,3</code>
+        }
+        <hr/>
+        for(let i in obj){
+            console.log(obj[i]) <code>i is a key and output will be "avinash"</code>
+        }
+        <hr/>
+        for(let i of arr){
+            console.log(i) <code>//1,2,3</code>
+        }
+        <hr/>
+        arr.foreach((i)=>console.log(i)) <code>//1,2,3</code>
+    </pre>
+    <hr />
+
+
+    <h3>What is the difference between a while loop and a do while loop in JavaScript?</h3>
+    <div>==></div>
+    <p>
+        While loop checks the condition before executing the statement(s), do-while loop executes the statement(s) at
+        least once before checking the condition
+    </p>
+    <pre>
+        while(condition){
+            statement
+        }
+    <hr/>
+        do{
+            statement
+        } while(condition)
+    </pre>
+    <hr />
+
+
+    <h3>What is hoisting in JavaScript?
+    </h3>
+    <div>==></div>
+    <p>
+        Hoisting is a behavior in JavaScript where variable and function declarations are moved to the top of their
+        scope, allowing them to be used before they are declared.
+    </p>
+    <pre>
+
+        console.log(count) <code>//variable hoisting</code>
+        add(1,3)  <code>//function hoisting</code>
+
+        var count = 2 
+
+        function add(a,b){
+            return a+b
+        }
+
+    </pre>
+    <hr />
+
+    <h3>How can you check if a variable is an array in JavaScript?
+    </h3>
+    <div>==></div>
+    <p>
+        You can use the Array.isArray() method to check if a variable is an array. It returns true if the variable is an
+        array, and false otherwise.
+    </p>
+    <pre>
+       const arr = [1,2,3]
+       console.log(Array.isArray(arr)) <code>//true</code>
+    </pre>
+    <hr />
+
+    <h3>What is an immediately-invoked function expression (IIFE) in JavaScript?</h3>
+    <div>==></div>
+    <p>An IIFE is a function that is immediately executed when it is defined. It is typically used to create a private
+        scope and avoid polluting the global namespace. For example:
+    </p>
+    <pre>
+        (function() {
+
+            // code goes here
+          
+          })();
+    </pre>
+    <hr />
+
+
+    <h3>What are the primitive data types in JavaScript?</h3>
+    <div>==></div>
+    <p>
+        The primitive data types in JavaScript are string, number, boolean, null, undefined, and symbol (added in ES6).
+    </p>
+    <hr />
+
+    <h3>What is the difference between the “==” and “===” operators in JavaScript?</h3>
+    <div>==></div>
+    <p>
+        The “==” operator compares two values for equality, converting them to a common type if necessary, while the
+        “===” operator compares two values for strict equality, without type coercion.
+        <br /><br />
+        == is a loose equality operator that compares values without considering their data types. === is a strict
+        equality operator that compares values while considering their data types. For example, “1” == 1 would return
+        true, while “1” === 1 would return false.
+        <br /><br />
+        == compares values for equality after converting them to a common type, while === compares values for equality
+        without type conversion.
+    </p>
+    <pre>
+        console.log(22=="22") <code>//true</code>
+        console.log(22==="22") <code>//false</code>
+    </pre>
+    <hr />
+
+    <h3>What is the difference between let and var in terms of hoisting?</h3>
+    <div>==></div>
+    <p>Variables declared with var are hoisted to the top of their scope, meaning that they can be accessed before they
+        are declared. Variables declared with let are not hoisted, and attempting to access them before they are
+        declared will result in a reference error.
+    </p>
+    <pre>
+     console.log(a) <code>//undefined</code>
+     console.log(b) <code>//reference error</code>
+     var a = 10
+     let b = 20
+    </pre>
+    <hr />
+
+    <h3>What is a callback function</h3>
+    <div>==></div>
+    <p>
+        A callback function is a function that is passed as an argument to another function and is called when that
+        function completes
+    </p>
+    <pre>
+        const print = (i) => console.log(i)
+
+        const fun = (a,b,callback) = >{
+            callback(a+b)
+        }
+
+        fun(10,20, print)
+
+    </pre>
+    <hr />
+
+    <h3>What is a variable in JavaScript?</h3>
+    <div>==></div>
+    <p>
+        A variable is a named storage location in JavaScript that holds a value. It is used to store data that can be
+        accessed and manipulated throughout a script.
+    </p>
+    <pre>
+        const PI = 3.14
+
+        const areaOfCircle = (r) => PI*r*r
+
+        areaOfCircle(10)
+    </pre>
+    <hr />
+
+    <h3>How do you declare a variable in JavaScript?
+    </h3>
+    <div>==></div>
+    <p>You can declare a variable in JavaScript using the “var”, “let”, or “const” keyword followed by the variable
+        name. For example:
+    </p>
+    <pre>
+        var myVariable;
+
+        let myVariable;
+        
+        const myVariable;        
+    </pre>
+    <hr />
+
+    <h3>What is a function in JavaScript?</h3>
+    <div>==></div>
+    <p>A function is a block of code that performs a specific task in JavaScript. It can be reused multiple times
+        throughout a script and can accept input parameters and return values.
+    </p>
+    <hr />
+
+    <h3>What is an array in JavaScript?</h3>
+    <div>==></div>
+    <p>
+        An array is a collection of data in JavaScript that can hold multiple values, including strings, numbers, and
+        objects. It is declared using square brackets and each value is separated by a comma
+    </p>
+    <pre>
+        let myArray = [“apple”, “banana”, “orange”];
+    </pre>
+    <hr />
+
+    <h3>What is an object in JavaScript?</h3>
+    <div>==></div>
+    <p>
+        An object is a collection of properties in JavaScript that can hold multiple values, including strings, numbers,
+        arrays, and other objects. It is declared using curly braces and each property is separated by a comma. For
+        example:
+    </p>
+    <pre>
+        let myObject = {
+
+            name: “John”,
+          
+            age: 30,
+          
+            hobbies: [“reading”, “traveling”]
+          
+          };
+    </pre>
+    <hr />
+
+    <h3>How do you create a new object in JavaScript?
+    </h3>
+    <div>==></div>
+    <p>You can create a new object in JavaScript using either object literal notation (const obj = {}) or the Object()
+        constructor (const obj = new Object()).
+    </p>
+    <hr />
+
+    <h3>What is the purpose of the map() method in JavaScript?
+    </h3>
+    <div>==></div>
+    <p> The map() method is used to create a new array by applying a function to each element of an existing array. The
+        original array is not modified.
+    </p>
+    <pre>
+        const  arr = [1,2,3,4,5,6]
+        const sqr = arr.map(i=>i*i) <code>//1,4,9,16,25,36</code>
+    </pre>
+    <hr />
+
+    <h3>What is a promise in JavaScript?
+    </h3>
+    <div>==></div>
+    <p>A promise is an object that represents a value that may not be available yet but will be in the future. It allows
+        you to write asynchronous code that is more readable and maintainable.
+    </p>
+    <hr />
+
+    <h3>How do you write a conditional statement in JavaScript?</h3>
+    <div>==></div>
+    <p>
+        You can write a conditional statement in JavaScript using the if, else if, and else keywords and also we can use
+        switch. For example:
+    </p>
+    <pre>
+        if (x > 10) {
+
+            console.log(“x is greater than 10”);
+          
+          } else if (x < 10) {
+          
+            console.log(“x is less than 10”);
+          
+          } else {
+          
+            console.log(“x is equal to 10”);
+          
+          }
+        <hr/>
+        switch(expression) {
+            case x:
+              // code block
+              break;
+            case y:
+              // code block
+              break;
+            default:
+              // code block
+          }
+    </pre>
+    <hr />
+
+    <h3>How do you check if an object has a specific property in JavaScript?
+    </h3>
+    <div>==></div>
+    <p>You can check if an object has a specific property in JavaScript using the “in” operator or the hasOwnProperty()
+        method. For example:
+    </p>
+    <pre>
+        “propertyName” in myObject; // true or false
+
+        myObject.hasOwnProperty(“propertyName”); // true or false
+                
+    </pre>
+    <hr />
+
+    <h3>How do you convert a string to a number in JavaScript?
+    </h3>
+    <div>==></div>
+    <p>You can convert a string to a number in JavaScript using the Number() or parseInt() functions. For example:
+    </p>
+    <pre>
+        Number(“123”); // 123
+
+        parseInt(“123”); // 123
+    </pre>
+    <hr />
+
+
+
+</body>
+
+</html>
+
+<!-- <h3></h3>
+    <div>==></div>
+    <p>
+    </p>
+    <pre>
+
+    </pre>
+    <hr /> -->
